@@ -33,6 +33,7 @@ public class EspressoTests {
     //and espresso can perform tests in a random order,
     //I decided to put all operations and assertions for CRUD into the one test,
     //To make sure that the order of operations will be followed
+    //There should be no contacts in the database before the testing!!!
     @Test
     public void CRUD_test() {
         //CREATE new contact

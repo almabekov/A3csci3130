@@ -11,6 +11,10 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**Software Engineering assignment 3
+ * @author Andrey Almabekov
+ */
+
 public class MainActivity extends Activity {
 
 
@@ -51,6 +55,11 @@ public class MainActivity extends Activity {
             }
         });
     }
+
+    /**
+     * Method is used to navigate to the create contact activity
+     * @param v can be used if we move method definition to the separate class
+     */
 
     public void createContactButton(View v)
     {

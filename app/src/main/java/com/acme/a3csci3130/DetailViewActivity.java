@@ -50,8 +50,11 @@ public class DetailViewActivity extends Activity {
         }
     }
 
+    /**
+     * Method is called when the "Update contact" button is clicked
+     * @param v can be used if we move method definition to the separate class
+     */
     public void updateContact(View v){
-        //TODO: Update contact funcionality
         String name = nameField.getText().toString();
         String businessNumber = businessNumberField.getText().toString();
         String primaryBusiness = primaryBusinessField.getText().toString();
@@ -69,9 +72,12 @@ public class DetailViewActivity extends Activity {
 
     }
 
+    /**
+     * Method is callsed when the "Erase contact" button is clicked
+     * @param v can be used if we move method definition to the separate class
+     */
     public void eraseContact(View v)
     {
-        //TODO: Erase contact functionality
         appState.firebaseReference.child(receivedPersonInfo.uid).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

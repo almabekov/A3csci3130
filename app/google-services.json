@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "529382861185",
+    "firebase_url": "https://softengassignment3.firebaseio.com",
+    "project_id": "softengassignment3",
+    "storage_bucket": "softengassignment3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529382861185:android:6409f2945731fca6",
+        "android_client_info": {
+          "package_name": "com.acme.a3csci3130"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529382861185-49fsp8i9ft9sookivdceuu8dp6rbe15k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD2te9JNnQf5Al3SA-7MdaFCOuG-QzUfY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

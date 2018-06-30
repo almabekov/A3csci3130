@@ -1,17 +1,27 @@
 package com.acme.a3csci3130;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailViewActivity extends Activity {
 
     private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;
     private Button updateButton, deleteButton;
     private MyApplicationData appState;
+    private Context context;
     Contact receivedPersonInfo;
 
     @Override
@@ -29,6 +39,7 @@ public class DetailViewActivity extends Activity {
         addressField = (EditText) findViewById(R.id.address);
         provinceField = (EditText) findViewById(R.id.province);
 
+        context = this;
         if(receivedPersonInfo != null){
             nameField.setText(receivedPersonInfo.name);
             businessNumberField.setText(receivedPersonInfo.businessNumber);
@@ -47,16 +58,28 @@ public class DetailViewActivity extends Activity {
         String address = addressField.getText().toString();
         String province = provinceField.getText().toString();
         Contact person = new Contact(receivedPersonInfo.uid, businessNumber, name, primaryBusiness, address, province);
-        appState.firebaseReference.child(receivedPersonInfo.uid).setValue(person);
-        Intent intent=new Intent(this, MainActivity.class);
-        startActivity(intent);
+        appState.firebaseReference.child(receivedPersonInfo.uid).setValue(person).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                Intent intent=new Intent(context, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void eraseContact(View v)
     {
         //TODO: Erase contact functionality
-        appState.firebaseReference.child(receivedPersonInfo.uid).setValue(null);
-        Intent intent=new Intent(this, MainActivity.class);
-        startActivity(intent);
+        appState.firebaseReference.child(receivedPersonInfo.uid).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                Intent intent=new Intent(context, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
